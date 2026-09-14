@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Angelina Sun | Media Arts Portfolio</title>
+    <title>Angelina's Portfolio | Media Arts</title>
 
     <!-- Google Fonts - Bitcount Grid Double Ink + Bitcount Prop Single -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -216,7 +216,29 @@
         border: 2px solid #fcc2d7;
       }
 
-      /* ===== 原生互动图片轮播图样式 ===== */
+      /* ===== 响应式视频播放容器 (16:9) ===== */
+      .video-container {
+        position: relative;
+        padding-bottom: 56.25%;
+        height: 0;
+        overflow: hidden;
+        border-radius: 12px;
+        border: 2px solid #fcc2d7;
+        margin: 15px 0;
+        background: #000000;
+      }
+
+      .video-container iframe,
+      .video-container video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+
+      /* ===== 轮播图样式 ===== */
       .carousel-container {
         position: relative;
         max-width: 100%;
@@ -298,48 +320,65 @@
         transform: scale(1.25);
       }
 
-      /* ===== 编程练习小项目网格 ===== */
-      .exercises-grid {
+      /* ===== 静态装置网格排版 ===== */
+      .project-image-grid {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 25px;
-        max-width: 1300px;
-        margin: 30px auto;
-        padding: 0 10px;
+        gap: 12px;
+        margin: 18px 0;
       }
 
-      .exercise-item {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        background: rgba(255, 255, 255, 0.3);
-        border-radius: 15px;
-        padding: 15px;
-        border: 2px solid #fcc2d7;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-      }
-
-      .exercise-item:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 8px 20px rgba(252, 194, 215, 0.4);
-      }
-
-      .exercise-item iframe {
+      .project-image-grid img {
         width: 100%;
-        height: 280px;
         border-radius: 10px;
         border: 2px solid #fcc2d7;
-        margin-bottom: 10px;
+        box-sizing: border-box;
+        object-fit: contain;
+        background: rgba(255, 255, 255, 0.25);
       }
 
-      /* 响应式适配 */
+      .grid-3-vertical {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: repeat(2, 260px);
+      }
+
+      .grid-3-vertical img:first-child {
+        grid-row: span 2;
+        height: 100%;
+      }
+
+      .grid-3-vertical img { height: 260px; }
+
+      .grid-2 { grid-template-columns: repeat(2, 1fr); }
+      .grid-2 img { height: 480px; }
+
+      .grid-4 { grid-template-columns: repeat(2, 1fr); }
+      .grid-4 img { height: 340px; }
+
+      .grid-5-featured { grid-template-columns: repeat(2, 1fr); }
+      .grid-5-featured img { height: 300px; }
+      .grid-5-featured img:first-child {
+        grid-column: span 2;
+        height: 520px;
+      }
+
+      /* 移动端/手机屏幕自适应 */
       @media (max-width: 900px) {
-        .exercises-grid { grid-template-columns: repeat(2, 1fr); }
         .carousel-slide img { height: 350px; }
       }
-      @media (max-width: 700px) {
-        .exercises-grid { grid-template-columns: 1fr; }
+      @media (max-width: 650px) {
         .carousel-slide img { height: 260px; }
+        .grid-2, .grid-3-vertical, .grid-4, .grid-5-featured {
+          grid-template-columns: 1fr;
+          grid-template-rows: auto;
+        }
+        .grid-3-vertical img:first-child, .grid-5-featured img:first-child {
+          grid-column: span 1;
+          grid-row: span 1;
+          height: 360px;
+        }
+        .grid-2 img, .grid-3-vertical img, .grid-4 img, .grid-5-featured img {
+          height: 300px;
+        }
       }
 
       footer {
@@ -390,7 +429,7 @@
     <div class="content-wrapper">
       <!-- 首页欢迎区域 -->
       <div>
-        <h1 class="main-title">Angelina Sun ✨</h1>
+        <h1 class="main-title">Angelina's Portfolio ✨</h1>
         <p>Interdisciplinary Media Arts & Practice Portfolio</p>
         <p style="font-size: 15px; max-width: 650px;">
           Exploring the boundaries between visual storytelling, spatial installation, moving image, and creative computing.
@@ -404,14 +443,13 @@
         <h1>Lens-Based Art</h1>
         <p class="section-subtitle">Photography series focusing on composition, light, emotion, and visual narrative.</p>
 
-        <!-- 项目 1: Dilemma (10张照片) -->
+        <!-- 项目 1: Dilemma -->
         <div class="project-card">
           <span class="project-tag">Photography Series</span>
           <h2>Dilemma</h2>
           <p style="font-size: 15px;">
-            [这里可以简单补充 Dilemma 的作品描述]
+            The Dilemma project explores the current situation of women losing their own lives in marriage through experimental photography. The work uses a cage to symbolize the bondage of marriage to women, and uses a plastic baby doll to satirize the irresponsibility of some men in family life. The project reveals the invisible pressure and unequal status that many women bear in marriage, and calls for attention to the problem that their efforts are often ignored. At the same time, it also reflects the social phenomenon of the decline in marriage rates, and triggers the audience's thinking about the value of marriage and gender equality.
           </p>
-
           <div class="carousel-container" data-current-index="0">
             <div class="carousel-slides">
               <div class="carousel-slide"><img src="img/Dilemma1.jpg" alt="Dilemma 1"></div>
@@ -442,22 +480,21 @@
           </div>
         </div>
 
-        <!-- 项目 2: Spiritual Sustenance (6张照片) -->
+        <!-- 项目 2: Spiritual Sustenance -->
         <div class="project-card">
           <span class="project-tag">Photography Series</span>
           <h2>Spiritual Sustenance</h2>
           <p style="font-size: 15px;">
-            [这里可以简单补充 Spiritual Sustenance 的作品描述]
+            In today's fast-paced life, people often place their empty souls on certain objects for comfort and dependence. However, over-reliance can easily lead to escapism and over-idealization. Objects can give us warmth and comfort for a while but they will leave us one day. We need to learn to be strong inside and face reality. In this project, I photographed several objects that people around me are emotionally attached to, and printed them out as a notice of lost property and pasted them in some unlikely places. The point of doing this is to show by contrast that these items are not dependent to people.
           </p>
-
           <div class="carousel-container" data-current-index="0">
             <div class="carousel-slides">
-              <div class="carousel-slide"><img src="img/Spiritual1.jpg" alt="Spiritual Sustenance 1"></div>
-              <div class="carousel-slide"><img src="img/Spiritual2.jpg" alt="Spiritual Sustenance 2"></div>
-              <div class="carousel-slide"><img src="img/Spiritual3.jpg" alt="Spiritual Sustenance 3"></div>
-              <div class="carousel-slide"><img src="img/Spiritual4.jpg" alt="Spiritual Sustenance 4"></div>
-              <div class="carousel-slide"><img src="img/Spiritual5.jpg" alt="Spiritual Sustenance 5"></div>
-              <div class="carousel-slide"><img src="img/Spiritual6.jpg" alt="Spiritual Sustenance 6"></div>
+              <div class="carousel-slide"><img src="img/Spiritual1.jpg" alt="Spiritual 1"></div>
+              <div class="carousel-slide"><img src="img/Spiritual2.jpg" alt="Spiritual 2"></div>
+              <div class="carousel-slide"><img src="img/Spiritual3.jpg" alt="Spiritual 3"></div>
+              <div class="carousel-slide"><img src="img/Spiritual4.jpg" alt="Spiritual 4"></div>
+              <div class="carousel-slide"><img src="img/Spiritual5.jpg" alt="Spiritual 5"></div>
+              <div class="carousel-slide"><img src="img/Spiritual6.jpg" alt="Spiritual 6"></div>
             </div>
             <button class="carousel-btn prev-btn" onclick="moveSlide(this, -1)">❮</button>
             <button class="carousel-btn next-btn" onclick="moveSlide(this, 1)">❯</button>
@@ -472,24 +509,23 @@
           </div>
         </div>
 
-        <!-- 项目 3: Missing Half (8张照片) -->
+        <!-- 项目 3: Missing Half -->
         <div class="project-card">
           <span class="project-tag">Photography Series</span>
           <h2>Missing Half</h2>
           <p style="font-size: 15px;">
-            [这里可以简单补充 Missing Half 的作品描述]
+            After my parents' divorce, I felt the drastic change in my life and the absence of a male role in my family. I often felt a lack of fatherly love and emotional support, which made me feel very insecure. For this project I used tape and number plates to simulate the “scene of the crime”- the disappearing father to show my current life. However, I was not defeated by my parents' divorce, and over time I learned to accept my emotions, focus on myself, and understand my parents and each other. Even though my father is no longer around, the love continues. I tried to assemble these "clues" into a clue board, trying to find traces of my father. However, in the end, it was abandoned in a closed storage room, along with my blocked memories of my father.
           </p>
-
           <div class="carousel-container" data-current-index="0">
             <div class="carousel-slides">
-              <div class="carousel-slide"><img src="img/Missing1.jpg" alt="Missing Half 1"></div>
-              <div class="carousel-slide"><img src="img/Missing2.jpg" alt="Missing Half 2"></div>
-              <div class="carousel-slide"><img src="img/Missing3.jpg" alt="Missing Half 3"></div>
-              <div class="carousel-slide"><img src="img/Missing4.jpg" alt="Missing Half 4"></div>
-              <div class="carousel-slide"><img src="img/Missing5.jpg" alt="Missing Half 5"></div>
-              <div class="carousel-slide"><img src="img/Missing6.jpg" alt="Missing Half 6"></div>
-              <div class="carousel-slide"><img src="img/Missing7.jpg" alt="Missing Half 7"></div>
-              <div class="carousel-slide"><img src="img/Missing8.jpg" alt="Missing Half 8"></div>
+              <div class="carousel-slide"><img src="img/Missing1.jpg" alt="Missing 1"></div>
+              <div class="carousel-slide"><img src="img/Missing2.jpg" alt="Missing 2"></div>
+              <div class="carousel-slide"><img src="img/Missing3.jpg" alt="Missing 3"></div>
+              <div class="carousel-slide"><img src="img/Missing4.jpg" alt="Missing 4"></div>
+              <div class="carousel-slide"><img src="img/Missing5.jpg" alt="Missing 5"></div>
+              <div class="carousel-slide"><img src="img/Missing6.jpg" alt="Missing 6"></div>
+              <div class="carousel-slide"><img src="img/Missing7.jpg" alt="Missing 7"></div>
+              <div class="carousel-slide"><img src="img/Missing8.jpg" alt="Missing 8"></div>
             </div>
             <button class="carousel-btn prev-btn" onclick="moveSlide(this, -1)">❮</button>
             <button class="carousel-btn next-btn" onclick="moveSlide(this, 1)">❯</button>
@@ -506,14 +542,13 @@
           </div>
         </div>
 
-        <!-- 项目 4: Project 1 (摄影课 - 安装图+7张照片=8张) -->
+        <!-- 项目 4: My Present Life -->
         <div class="project-card">
-          <span class="project-tag">College Photography Coursework</span>
-          <h2>Photography Project 1</h2>
+          <span class="project-tag">Photography Project</span>
+          <h2>My Present Life</h2>
           <p style="font-size: 15px;">
-            [大学摄影课项目 1 简介]
+            This photography project explores loneliness through the ordinary moments of my daily life as an international student living away from home for the first time. Through quiet campus landscapes, personal spaces, video calls with family, and symbolic images of isolated objects, I transformed an initially mundane visual record into an intimate reflection on solitude. The closely arranged photographs suggest the gesture of embracing oneself, expressing how I gradually learned to accept loneliness, connect with my inner self, and grow through the experience.
           </p>
-
           <div class="carousel-container" data-current-index="0">
             <div class="carousel-slides">
               <div class="carousel-slide"><img src="img/P1installation.jpeg" alt="P1 Installation"></div>
@@ -540,14 +575,13 @@
           </div>
         </div>
 
-        <!-- 项目 5: Project 2 (摄影课 - 安装图+6张照片=7张) -->
+        <!-- 项目 5: Portrait, Prop, Performance -->
         <div class="project-card">
-          <span class="project-tag">College Photography Coursework</span>
-          <h2>Photography Project 2</h2>
+          <span class="project-tag">Photography Project</span>
+          <h2>Portrait, Prop, Performance</h2>
           <p style="font-size: 15px;">
-            [大学摄影课项目 2 简介]
+            This photography project examines how social media and rigid beauty standards intensify appearance anxiety among women. Through images of restrictive clothing, uncomfortable shoes, extreme dieting, cosmetic procedures, and irritating beauty products, I make visible the physical and psychological pain that is often normalized or left unspoken. By rendering most of each image in black and white while highlighting areas of discomfort in red, I direct attention to the hidden costs of conforming to unrealistic ideals. The project encourages viewers to question conventional beauty standards and prioritize bodily comfort and self-acceptance over external approval.
           </p>
-
           <div class="carousel-container" data-current-index="0">
             <div class="carousel-slides">
               <div class="carousel-slide"><img src="img/P2installation.jpeg" alt="P2 Installation"></div>
@@ -572,14 +606,13 @@
           </div>
         </div>
 
-        <!-- 项目 6: Project 3 (摄影课 - 安装图+7张照片=8张) -->
+        <!-- 项目 6: Still Life -->
         <div class="project-card">
-          <span class="project-tag">College Photography Coursework</span>
-          <h2>Photography Project 3</h2>
+          <span class="project-tag">Photography Project</span>
+          <h2>Still Life</h2>
           <p style="font-size: 15px;">
-            [大学摄影课项目 3 简介]
+            This still-life photography project uses tarot cards to explore how people search for answers and emotional reassurance during moments of uncertainty. Rather than serving merely as photographic props, the cards function as mirrors that reflect our inner thoughts and emotions. The seven-image series unfolds through three paired visual narratives, preceded by a close-up image that introduces the story. Dark tones establish an introspective atmosphere, while stones symbolize tears and the emotional difficulty of searching for direction. Although tarot may provide comfort and temporary guidance, the project suggests that we should not depend on it completely—the answers we seek must ultimately come from within.
           </p>
-
           <div class="carousel-container" data-current-index="0">
             <div class="carousel-slides">
               <div class="carousel-slide"><img src="img/P3installation.jpeg" alt="P3 Installation"></div>
@@ -608,55 +641,159 @@
       </div>
 
       <!-- ==========================================
-           2. Installation & Spatial (装置与空间/跨媒介)
+           2. Installation & Spatial (装置与空间/立体艺术)
            ========================================== -->
       <div id="spatial">
         <h1>Installation & Spatial</h1>
-        <p class="section-subtitle">Bridging 2D imagery with 3D physical spaces, materials, and mixed media.</p>
+        <p class="section-subtitle">Bridging 3D physical spaces, wearable forms, sculptural materials, and media environments.</p>
 
+        <!-- 装置项目 1: Mermaid Dream -->
         <div class="project-card">
-          <span class="project-tag">Photo & Spatial Installation</span>
-          <h2>Photography & Installation Project</h2>
+          <span class="project-tag">Wearable Sculpture</span>
+          <h2>Mermaid Dream</h2>
           <p style="font-size: 15px;">
-            [这里填写“摄影+装置”作品的创作说明。]
+            This wearable sculpture transforms my childhood dream of becoming a mermaid into an exploration of sacrifice and confinement. The tail’s restrictive, unfinished structure reveals the discomfort hidden beneath a beautiful fantasy. Inspired by Andersen’s The Little Mermaid, the work reflects how crossing boundaries and pursuing transformation often require surrendering freedom, comfort, and part of oneself.
           </p>
-          <img src="img/project1.PNG" alt="Photo Installation" class="project-image">
+          <div class="project-image-grid grid-3-vertical">
+            <img src="img/MD1.jpeg" alt="Mermaid Dream 1">
+            <img src="img/MD2.jpeg" alt="Mermaid Dream 2">
+            <img src="img/MD3.jpeg" alt="Mermaid Dream 3">
+          </div>
         </div>
 
+        <!-- 装置项目 2: Carousel -->
         <div class="project-card">
-          <span class="project-tag">Experimental Film & Installation</span>
-          <h2>Experimental Film & Spatial Photography</h2>
+          <span class="project-tag">Fiber Sculpture</span>
+          <h2>Carousel</h2>
           <p style="font-size: 15px;">
-            [这里填写“实验短片+装置摄影”作品的创作说明。]
+            This fiber sculpture explores my childhood memories before my parents’ divorce. The carousel represents warmth and happiness that can no longer be recovered, while its fragmented fabric, solitary horse, and circular movement suggest loneliness and emotional entrapment. Through its soft, childlike appearance, the work contrasts the tenderness of nostalgia with the sadness beneath it.
           </p>
-          <img src="img/project2.PNG" alt="Experimental Installation" class="project-image">
+          <div class="project-image-grid grid-4">
+            <img src="img/Caro1.jpeg" alt="Carousel 1">
+            <img src="img/Caro2.jpeg" alt="Carousel 2">
+            <img src="img/Caro3.jpeg" alt="Carousel 3">
+            <img src="img/Caro4.jpeg" alt="Carousel 4">
+          </div>
         </div>
 
+        <!-- 装置项目 3: Cycle -->
         <div class="project-card">
-          <span class="project-tag">Studio Art & Mixed Media</span>
-          <h2>Art & Design Studio Project</h2>
+          <span class="project-tag">Clay Sculpture</span>
+          <h2>Cycle</h2>
           <p style="font-size: 15px;">
-            [这里填写在 Art and Design Studio 课上完成的空间/立体/综合材料作品。]
+            This clay sculpture explores the natural cycle of decay and renewal through lily-of-the-valley flowers. Cracked petals and fallen blossoms represent death and return to the earth, while newly blooming flowers suggest regeneration. By allowing the clay’s natural deterioration to shape the work, the piece transforms material fragility into a reflection on the continuity of life.
           </p>
-          <img src="img/project3.PNG" alt="Studio Art" class="project-image">
+          <div class="project-image-grid grid-3-vertical">
+            <img src="img/Cycle1.jpeg" alt="Cycle 1">
+            <img src="img/Cycle2.jpeg" alt="Cycle 2">
+            <img src="img/Cycle3.jpeg" alt="Cycle 3">
+          </div>
         </div>
+
+        <!-- 装置项目 4: Blended Tea -->
+        <div class="project-card">
+          <span class="project-tag">Collaborative Sculpture</span>
+          <h2>Blended Tea</h2>
+          <p style="font-size: 15px;">
+            This collaborative sculpture uses a giant tea bag to explore cultural fusion through our different relationships with tea. My contribution focused on milk tea as a contemporary adaptation of traditional tea culture and a symbol of my generation. By combining our personal experiences within one form, the work shows how distinct cultural perspectives can coexist and create a shared identity.
+          </p>
+          <div class="project-image-grid grid-2">
+            <img src="img/Tea1.jpeg" alt="Blended Tea 1">
+            <img src="img/Tea2.jpeg" alt="Blended Tea 2">
+          </div>
+        </div>
+
+        <!-- 装置项目 5: Invisible Black -->
+        <div class="project-card">
+          <span class="project-tag">Spatial Installation</span>
+          <h2>Invisible Black</h2>
+          <p style="font-size: 15px;">
+            The inspiration for the project 'Invisible Black' came from the hair loss that occurs everywhere in the house and the hair that falls out in the shower. Advertisements for hair transplants flooded the streets and social media, spreading the anxiety of hair loss even further, and it's getting younger and younger. Whenever I look at my hair that falls out, I am reminded of the unspeakable pain in my life, and these strands are like evidence of the scars I have experienced. I tried to cover up the most commonly used objects in my life with hair, blurring their own shape, color, function, using hair visualization as a metaphor for the sorrow I have experienced.
+          </p>
+          <div class="project-image-grid grid-5-featured">
+            <img src="img/Black1.jpeg" alt="Invisible Black 1">
+            <img src="img/Black2.jpeg" alt="Invisible Black 2">
+            <img src="img/Black3.jpeg" alt="Invisible Black 3">
+            <img src="img/Black4.jpeg" alt="Invisible Black 4">
+            <img src="img/Black5.jpeg" alt="Invisible Black 5">
+          </div>
+        </div>
+
+        <!-- 装置项目 6: Dull Pain -->
+        <div class="project-card">
+          <span class="project-tag">Video Installation</span>
+          <h2>Dull Pain</h2>
+          <p style="font-size: 15px;">
+            Dull pain, this delicate and indescribable feeling runs through women's daily lives. From the slightly stuffy feeling of restraint on the fingertips after manicure, to the slight friction when wearing cosmetic contact lenses, to the pressure and itching of the skin caused by the waist corset, these subtle discomforts are ignored because of their subtlety, and eventually integrated into life and become a commonplace. This project visualizes this "hidden pain" in the form of an experimental short film, explores the discomfort and repression that contemporary women endure in order to cater to social aesthetic standards, and arouses attention and reflection on this hidden problem.
+          </p>
+          <div class="project-image-grid grid-4">
+            <img src="img/Pain1.jpeg" alt="Dull Pain 1">
+            <img src="img/Pain2.jpeg" alt="Dull Pain 2">
+            <img src="img/Pain3.jpeg" alt="Dull Pain 3">
+            <img src="img/Pain4.jpeg" alt="Dull Pain 4">
+          </div>
+          <div style="margin-top: 15px; text-align: center;">
+            <a href="https://youtu.be/sDx2ypHOn9Y" target="_blank">Watch Full Experimental Short Film on YouTube →</a>
+          </div>
+        </div>
+
       </div>
 
       <!-- ==========================================
            3. Moving Image & Film (动态影像与影视)
-           ========================================== -->
+           ========================================= -->
       <div id="film">
         <h1>Moving Image & Film</h1>
         <p class="section-subtitle">Cinematic storytelling, camera operation, and time-based media experiments.</p>
 
+        <!-- 项目 1: RUN TO YOU -->
         <div class="project-card">
           <span class="project-tag">Short Film | Role: Camera Assistant</span>
-          <h2>Internship Short Film Project</h2>
+          <h2>RUN TO YOU</h2>
           <p style="font-size: 15px;">
-            Served as the Camera Assistant in this professional short film production. Responsible for camera setups, focus pulling assistance, and supporting the Director of Photography on set.
+            This was a teamwork piece and my position on the team was as a photographic assistant. This story is about the power of kinship and the love and resilience of human nature in an impoverished environment. It shows the selflessness and sacrifice of affection through the relationship between the little boy and his grandmother. This kind of love transcends the limitations of material conditions and is an unconditional giving. There is also the choice and persistence of love: the young boy's persistence symbolises mankind's instinctive desire for true love. This choice transcends rationality and is a pure expression of emotion, highlighting the irreplaceability of affection. The short film can trigger concern and reflection on the lower strata of society—it calls on people to pay attention to the disadvantaged and understand the complex human nature and emotional conflicts brought about by poverty.
           </p>
-          <img src="img/project2.PNG" alt="Short Film Project" class="project-image">
+          <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/Z8fq22o71eA" title="RUN TO YOU" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
         </div>
+
+        <!-- 项目 2: Dull Pain -->
+        <div class="project-card">
+          <span class="project-tag">Experimental Short Film / Video Version</span>
+          <h2>Dull Pain</h2>
+          <p style="font-size: 15px;">
+            An experimental video version of the video installation project, visualizing the subtle, hidden pain women endure daily—exploring the physical discomforts and social pressures normalized under conventional aesthetic standards.
+          </p>
+          <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/sDx2ypHOn9Y" title="Dull Pain" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+        </div>
+
+        <!-- 项目 3: Body -->
+        <div class="project-card">
+          <span class="project-tag">Moving Image / Experimental Film</span>
+          <h2>Body</h2>
+          <p style="font-size: 15px;">
+            This video explores weight anxiety and the emotional power of numbers on a scale. Through repeated weigh-ins, removing clothing, and exaggerated humor, it reveals how temporary external factors can distort weight measurements and control our emotions. The private dorm setting further reflects how this anxiety often emerges in moments of solitude.
+          </p>
+          <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/9SGO6uZTtF4" title="Body" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+        </div>
+
+        <!-- 项目 4: Vituality -->
+        <div class="project-card">
+          <span class="project-tag">Moving Image / Short Film</span>
+          <h2>Vituality</h2>
+          <p style="font-size: 15px;">
+            This video explores information overload caused by constant phone notifications. By showing everyday activities repeatedly interrupted by alerts, it reveals how digital information fragments our attention. In the ending, notification sounds continue even after I throw the phone away, emphasizing the overwhelming and seemingly inescapable presence of digital communication.
+          </p>
+          <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/i8pnoKpJDew" title="Vituality" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+        </div>
+
       </div>
 
       <!-- ==========================================
@@ -664,53 +801,24 @@
            ========================================== -->
       <div id="interactive">
         <h1>Interactive & Code</h1>
-        <p class="section-subtitle">Explorations in creative technology, p5.js interaction, and web experiments.</p>
+        <p class="section-subtitle">Explorations in creative technology, web interaction, and narrative systems.</p>
 
+        <!-- Final Project: Odyssey Years -->
         <div class="project-card">
-          <span class="project-tag">p5.js Interactive Audio-Visual</span>
-          <h2>My 2025 Memoir</h2>
-          <p style="font-size: 15px;">
-            An interactive diary chronicling 12 months with music and visual memories.
-          </p>
-          <img src="img/project1.PNG" alt="My 2025 memoir" class="project-image">
-          <a href="https://editor.p5js.org/Angelinaaa0311/sketches/Rn2HWifjM" target="_blank">Launch Interactive Sketch →</a>
-        </div>
-
-        <div class="project-card">
-          <span class="project-tag">Web Game & Interactive Narrative</span>
-          <h2>Crush Island</h2>
-          <p style="font-size: 15px;">
-            A decision-making web narrative exploring relationship personalities through story choice.
-          </p>
-          <img src="img/project2.PNG" alt="Crush Island" class="project-image">
-          <a href="https://angelinaaa0311.github.io/iml300/IML300-project2-CrushIsland/" target="_blank">Play Interactive Game →</a>
-        </div>
-
-        <div class="project-card">
-          <span class="project-tag">Web Platform & Network Care</span>
+          <span class="project-tag">Featured Interactive Project</span>
           <h2>Odyssey Years</h2>
           <p style="font-size: 15px;">
-            A therapeutic web platform for young adults featuring rain animations, white noise, and message boards.
+            A therapeutic web platform designed for young adults experiencing transitional uncertainty. Featuring interactive generative rain visuals, immersive audio ambient controls, and an anonymous message board for shared reflection.
           </p>
-          <img src="img/project3.PNG" alt="Odyssey Years" class="project-image">
-          <a href="https://angelinaaa0311.github.io/iml300/IML300-project3-OdysseyYears/" target="_blank">Visit Web Platform →</a>
-        </div>
-
-        <h2 style="margin-top: 50px;">p5.js Sketches & Experiments</h2>
-        <div class="exercises-grid">
-          <div class="exercise-item">
-            <iframe src="https://editor.p5js.org/Angelinaaa0311/sketches/KBR7Jya1I"></iframe>
-            <a href="https://editor.p5js.org/Angelinaaa0311/sketches/KBR7Jya1I" target="_blank">Exercise 1 | Face</a>
+          
+          <!-- 内嵌 GitHub Pages 网页 -->
+          <div style="width: 100%; height: 600px; border-radius: 12px; overflow: hidden; border: 2px solid #fcc2d7; margin: 15px 0; background: #ffffff;">
+            <iframe src="https://angelinaaa0311.github.io/iml300/IML300-project3-OdysseyYears/" style="width: 100%; height: 100%; border: none;" allowfullscreen></iframe>
           </div>
 
-          <div class="exercise-item">
-            <iframe src="https://editor.p5js.org/Angelinaaa0311/sketches/XQLV8kI6Q"></iframe>
-            <a href="https://editor.p5js.org/Angelinaaa0311/sketches/XQLV8kI6Q" target="_blank">Exercise 2 | Drawing Tool</a>
-          </div>
-
-          <div class="exercise-item">
-            <iframe src="https://editor.p5js.org/Angelinaaa0311/sketches/iZIgZK-3Z"></iframe>
-            <a href="https://editor.p5js.org/Angelinaaa0311/sketches/iZIgZK-3Z" target="_blank">Exercise 3 | Pattern</a>
+          <!-- 全屏跳转链接 -->
+          <div style="text-align: center; margin-top: 10px;">
+            <a href="https://angelinaaa0311.github.io/iml300/IML300-project3-OdysseyYears/" target="_blank">↗ Open Odyssey Years in New Tab (Fullscreen)</a>
           </div>
         </div>
       </div>
@@ -736,7 +844,7 @@
       <footer>Designed & Created by Angelina Sun © 2026</footer>
     </div>
 
-    <!-- ===== JS 脚本（星空、平滑滚动与轮播图） ===== -->
+    <!-- ===== JS 脚本 ===== -->
     <script>
       /* ===== 1. 星空生成动画 ===== */
       (function() {
