@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
   <head>
     <meta charset="UTF-8" />
-    <title>Angelina's Homepage</title>
-    <!--Update with your name-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Angelina Sun | Media Arts Portfolio</title>
 
     <!-- Google Fonts - Bitcount Grid Double Ink + Bitcount Prop Single -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -22,7 +22,7 @@
         color: #a64d79;
       }
 
-
+      /* ===== 星空背景动画 ===== */
       #stars-container {
         position: fixed;
         top: 0;
@@ -48,29 +48,14 @@
       }
 
       @keyframes starTwinkle {
-        0% {
-          opacity: 0;
-          transform: scale(0.3);
-        }
-        25% {
-          opacity: 0.8;
-          transform: scale(1);
-        }
-        50% {
-          opacity: 1;
-          transform: scale(1.05);
-        }
-        75% {
-          opacity: 0.6;
-          transform: scale(1);
-        }
-        100% {
-          opacity: 0;
-          transform: scale(0.3);
-        }
+        0% { opacity: 0; transform: scale(0.3); }
+        25% { opacity: 0.8; transform: scale(1); }
+        50% { opacity: 1; transform: scale(1.05); }
+        75% { opacity: 0.6; transform: scale(1); }
+        100% { opacity: 0; transform: scale(0.3); }
       }
 
-
+      /* ===== 顶部固定导航栏 ===== */
       .top-border {
         position: fixed;
         top: 0;
@@ -79,6 +64,7 @@
         height: 140px;
         background-color: #fcc2d7;
         z-index: 10;
+        box-shadow: 0 4px 15px rgba(166, 77, 121, 0.15);
       }
 
       .characters {
@@ -101,13 +87,8 @@
         pointer-events: auto;
       }
 
-      .character-group:hover {
-        transform: translateY(-8px);
-      }
-
-      .character-group:active {
-        transform: translateY(-3px) scale(0.95);
-      }
+      .character-group:hover { transform: translateY(-8px); }
+      .character-group:active { transform: translateY(-3px) scale(0.95); }
 
       .character-img {
         height: 70px;
@@ -133,76 +114,52 @@
         white-space: nowrap;
       }
 
-
+      /* ===== 页面内容包装容器 ===== */
       .content-wrapper {
         position: relative;
         z-index: 1;
-        padding: 170px 20px 20px 20px;
+        padding: 170px 20px 40px 20px;
         text-align: center;
       }
 
-
-      h1 {
+      h1, h2, h3 {
         font-family: "Bitcount Grid Double Ink", monospace;
         font-optical-sizing: auto;
-        font-weight: 600;
-        font-style: normal;
-        font-variation-settings:
-          "slnt" 0,
-          "CRSV" 0.5,
-          "ELSH" 0,
-          "ELXP" 0,
-          "SZP1" 0,
-          "SZP2" 0,
-          "XPN1" 0,
-          "XPN2" 0,
-          "YPN1" 0,
-          "YPN2" 0;
-        color: #faa2c1;
+        color: #a64d79;
       }
 
-
       .main-title {
-        font-size: 80px;
+        font-size: 70px;
         color: #faa2c1;
         margin-bottom: 20px;
         letter-spacing: 2px;
       }
 
-
       h1 {
-        font-size: 50px;
-        margin-top: 40px;
+        font-size: 42px;
+        margin-top: 70px;
+        color: #faa2c1;
       }
 
+      h2 { font-size: 24px; margin-bottom: 8px; }
+      h3 { font-size: 18px; }
 
-      h2, h3 {
-        font-family: "Bitcount Grid Double Ink", monospace;
-        font-optical-sizing: auto;
-        font-weight: 400;
-        font-style: normal;
-        font-variation-settings:
-          "slnt" 0,
-          "CRSV" 0.5,
-          "ELSH" 0,
-          "ELXP" 0,
-          "SZP1" 0,
-          "SZP2" 0,
-          "XPN1" 0,
-          "XPN2" 0,
-          "YPN1" 0,
-          "YPN2" 0;
+      .section-subtitle {
+        font-size: 15px;
+        opacity: 0.85;
+        margin-top: -10px;
+        margin-bottom: 30px;
+      }
+
+      p {
+        font-family: "Bitcount Prop Single", monospace;
         color: #a64d79;
+        max-width: 750px;
+        margin-left: auto;
+        margin-right: auto;
+        line-height: 1.7;
+        font-size: 17px;
       }
-
-      h2 {
-        font-size: 22px;
-      }
-
-      h3 {
-        font-size: 18px;
-      }
-
 
       a {
         font-family: "Bitcount Prop Single", monospace;
@@ -211,6 +168,7 @@
         border-bottom: 1.5px dashed #a64d79;
         padding-bottom: 2px;
         font-size: 16px;
+        transition: all 0.2s ease;
       }
 
       a:hover {
@@ -218,13 +176,135 @@
         border-bottom-color: #c47b9a;
       }
 
+      /* ===== 通用作品卡片 ===== */
+      .project-card {
+        background: rgba(255, 255, 255, 0.35);
+        border: 2px solid #fcc2d7;
+        border-radius: 18px;
+        max-width: 850px;
+        margin: 30px auto;
+        padding: 25px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        text-align: left;
+      }
 
+      .project-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(252, 194, 215, 0.45);
+      }
+
+      .project-card h2 { text-align: center; }
+
+      .project-tag {
+        display: inline-block;
+        background: #fcc2d7;
+        color: #a64d79;
+        font-size: 12px;
+        padding: 3px 10px;
+        border-radius: 12px;
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+
+      .project-image {
+        display: block;
+        margin: 15px auto;
+        max-width: 100%;
+        width: 100%;
+        height: auto;
+        border-radius: 12px;
+        border: 2px solid #fcc2d7;
+      }
+
+      /* ===== 原生互动图片轮播图样式 ===== */
+      .carousel-container {
+        position: relative;
+        max-width: 100%;
+        margin: 15px auto;
+        border-radius: 12px;
+        overflow: hidden;
+        border: 2px solid #fcc2d7;
+        background: rgba(255, 255, 255, 0.4);
+      }
+
+      .carousel-slides {
+        display: flex;
+        transition: transform 0.4s ease-in-out;
+      }
+
+      .carousel-slide {
+        min-width: 100%;
+        box-sizing: border-box;
+      }
+
+      .carousel-slide img {
+        width: 100%;
+        height: 480px;
+        object-fit: cover;
+        display: block;
+      }
+
+      .carousel-btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(252, 194, 215, 0.85);
+        color: #a64d79;
+        border: 2px solid #ffffff;
+        font-size: 18px;
+        width: 38px;
+        height: 38px;
+        cursor: pointer;
+        border-radius: 50%;
+        user-select: none;
+        transition: all 0.2s ease;
+        z-index: 2;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .carousel-btn:hover {
+        background: #a64d79;
+        color: #ffffff;
+        transform: translateY(-50%) scale(1.1);
+      }
+
+      .prev-btn { left: 12px; }
+      .next-btn { right: 12px; }
+
+      .carousel-dots {
+        position: absolute;
+        bottom: 12px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 8px;
+        z-index: 2;
+      }
+
+      .dot {
+        width: 10px;
+        height: 10px;
+        background: rgba(255, 255, 255, 0.7);
+        border: 1.5px solid #a64d79;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: all 0.2s ease;
+      }
+
+      .dot.active {
+        background: #a64d79;
+        transform: scale(1.25);
+      }
+
+      /* ===== 编程练习小项目网格 ===== */
       .exercises-grid {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         gap: 25px;
         max-width: 1300px;
-        margin: 20px auto;
+        margin: 30px auto;
         padding: 0 10px;
       }
 
@@ -246,292 +326,377 @@
 
       .exercise-item iframe {
         width: 100%;
-        height: 300px;
+        height: 280px;
         border-radius: 10px;
         border: 2px solid #fcc2d7;
         margin-bottom: 10px;
       }
 
-      .exercise-item a {
-        margin-top: 5px;
-      }
-
-
-      .vibe-intro {
-        max-width: 800px;
-        margin: 0 auto 30px auto;
-        text-align: center;
-        line-height: 1.7;
-        font-size: 17px;
-      }
-
-      .vibe-intro p {
-        margin-bottom: 15px;
-      }
-
-      .vibe-item {
-        display: flex;
-        align-items: flex-start;
-        gap: 25px;
-        max-width: 900px;
-        margin: 0 auto 25px auto;
-        text-align: left;
-        background: rgba(255, 255, 255, 0.25);
-        border-radius: 15px;
-        padding: 20px 25px;
-        border: 2px solid #fcc2d7;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-      }
-
-      .vibe-item:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 6px 18px rgba(252, 194, 215, 0.35);
-      }
-
-      .vibe-link {
-        flex-shrink: 0;
-        width: 200px;
-        text-align: left;
-      }
-
-      .vibe-link a {
-        font-size: 18px;
-        font-weight: 600;
-        border-bottom: 1.5px dashed #a64d79;
-      }
-
-      .vibe-description {
-        flex: 1;
-        font-size: 15px;
-        line-height: 1.6;
-        color: #a64d79;
-      }
-
-
-      .thoughts-text {
-        max-width: 800px;
-        margin: 0 auto;
-        text-align: left;
-        line-height: 1.8;
-        font-size: 17px;
-      }
-
-      .thoughts-text p {
-        margin-bottom: 20px;
-        text-align: left;
-        max-width: 100%;
-      }
-
-
+      /* 响应式适配 */
       @media (max-width: 900px) {
-        .exercises-grid {
-          grid-template-columns: repeat(2, 1fr);
-        }
+        .exercises-grid { grid-template-columns: repeat(2, 1fr); }
+        .carousel-slide img { height: 350px; }
       }
-
       @media (max-width: 700px) {
-        .vibe-item {
-          flex-direction: column;
-          gap: 10px;
-        }
-        .vibe-link {
-          width: 100%;
-        }
-        .thoughts-text {
-          text-align: center;
-        }
-        .thoughts-text p {
-          text-align: center;
-        }
+        .exercises-grid { grid-template-columns: 1fr; }
+        .carousel-slide img { height: 260px; }
       }
 
-      @media (max-width: 600px) {
-        .exercises-grid {
-          grid-template-columns: 1fr;
-        }
-      }
-
-
-      p {
-        font-family: "Bitcount Prop Single", monospace;
-        color: #a64d79;
-        max-width: 700px;
-        margin-left: auto;
-        margin-right: auto;
-        line-height: 1.6;
-        font-size: 20px;
-      }
-
-      div[style*="font-size: 13px"] p {
-        font-family: "Bitcount Prop Single", monospace;
-        color: #a64d79;
-      }
-
-
-      .project-image {
-        display: block;
-        margin: 20px auto;
-        max-width: 100%;
-        width: 600px;
-        height: auto;
-        border-radius: 15px;
-        border: 3px solid #fcc2d7;
-        box-shadow: 0 4px 15px rgba(252, 194, 215, 0.3);
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-      }
-
-      .project-image:hover {
-        transform: scale(1.02);
-        box-shadow: 0 6px 20px rgba(252, 194, 215, 0.5);
-      }
-
-      /* footer */
       footer {
         font-family: "Bitcount Prop Single", monospace;
-        margin-top: 40px;
+        margin-top: 60px;
+        font-size: 14px;
       }
 
-      html {
-        scroll-behavior: smooth;
-      }
+      html { scroll-behavior: smooth; }
     </style>
   </head>
 
   <body>
-
+    <!-- 星空背景 -->
     <div id="stars-container"></div>
 
-
+    <!-- 顶部固定导航栏 -->
     <div class="top-border">
       <div class="characters">
-        <div class="character-group" onclick="scrollToSection('presentation')" title="Presentation">
-          <div class="character-img">
-            <img src="img/C1.PNG" alt="Presentation">
-          </div>
-          <span class="character-label">Presentation</span>
+        <div class="character-group" onclick="scrollToSection('photography')" title="Lens-Based Art">
+          <div class="character-img"><img src="img/C1.PNG" alt="Lens-Based"></div>
+          <span class="character-label">Lens-Based</span>
         </div>
 
-        <div class="character-group" onclick="scrollToSection('projects')" title="Projects">
-          <div class="character-img">
-            <img src="img/C2.PNG" alt="Projects">
-          </div>
-          <span class="character-label">Projects</span>
+        <div class="character-group" onclick="scrollToSection('spatial')" title="Installation & Spatial">
+          <div class="character-img"><img src="img/C2.PNG" alt="Spatial"></div>
+          <span class="character-label">Spatial & Art</span>
         </div>
 
-        <div class="character-group" onclick="scrollToSection('exercises')" title="Exercises">
-          <div class="character-img">
-            <img src="img/C3.PNG" alt="Exercises">
-          </div>
-          <span class="character-label">Exercises</span>
+        <div class="character-group" onclick="scrollToSection('film')" title="Moving Image & Film">
+          <div class="character-img"><img src="img/C3.PNG" alt="Moving Image"></div>
+          <span class="character-label">Moving Image</span>
         </div>
 
-        <div class="character-group" onclick="scrollToSection('vibe-coding')" title="Vibe Coding">
-          <div class="character-img">
-            <img src="img/C4.PNG" alt="Vibe Coding">
-          </div>
-          <span class="character-label">Vibe Coding</span>
+        <div class="character-group" onclick="scrollToSection('interactive')" title="Interactive & Code">
+          <div class="character-img"><img src="img/C4.PNG" alt="Interactive"></div>
+          <span class="character-label">Interactive</span>
         </div>
 
-        <div class="character-group" onclick="scrollToSection('thoughts')" title="Thoughts">
-          <div class="character-img">
-            <img src="img/C5.PNG" alt="Thoughts">
-          </div>
-          <span class="character-label">Thoughts</span>
+        <div class="character-group" onclick="scrollToSection('about')" title="About & Statement">
+          <div class="character-img"><img src="img/C5.PNG" alt="About"></div>
+          <span class="character-label">About Me</span>
         </div>
       </div>
     </div>
 
-
+    <!-- 页面正文内容 -->
     <div class="content-wrapper">
+      <!-- 首页欢迎区域 -->
       <div>
-        <h1 class="main-title">Welcome to Angee's channel!!</h1>
-        <p>
-          Hiii, I'm Angelina Sun.
-        </p>
-        <p>
-          This is my cute website for <i>IML300 class</i>.
-        </p>
-        <p>
-          This is my first time learning coding. Even though it often stressed me out as a total beginner, the whole process of leaning and improving little by little has been absolotely amazing
-        </p>
-        <p>
-          I hope I can keep exploring in this field and create more wonderful works in the future. I'm looking forward to seeing my own progress!
+        <h1 class="main-title">Angelina Sun ✨</h1>
+        <p>Interdisciplinary Media Arts & Practice Portfolio</p>
+        <p style="font-size: 15px; max-width: 650px;">
+          Exploring the boundaries between visual storytelling, spatial installation, moving image, and creative computing.
         </p>
       </div>
 
-      <div id="presentation">
-        <h1>Presentation</h1>
-        <iframe
-          src="https://www.canva.com/design/DAHDk5CHEyI/39Dk3Wzc4TlF6ush5DTjiA/view?embed"
-          width="800"
-          height="600"
-          frameborder="0"
-          allowfullscreen
-          style="display: block; margin: 20px auto; max-width: 100%; border: 3px solid #fcc2d7; border-radius: 15px;">
-        </iframe>
+      <!-- ==========================================
+           1. Lens-Based Art (摄影与视觉艺术)
+           ========================================== -->
+      <div id="photography">
+        <h1>Lens-Based Art</h1>
+        <p class="section-subtitle">Photography series focusing on composition, light, emotion, and visual narrative.</p>
+
+        <!-- 项目 1: Dilemma (10张照片) -->
+        <div class="project-card">
+          <span class="project-tag">Photography Series</span>
+          <h2>Dilemma</h2>
+          <p style="font-size: 15px;">
+            [这里可以简单补充 Dilemma 的作品描述]
+          </p>
+
+          <div class="carousel-container" data-current-index="0">
+            <div class="carousel-slides">
+              <div class="carousel-slide"><img src="img/Dilemma1.jpg" alt="Dilemma 1"></div>
+              <div class="carousel-slide"><img src="img/Dilemma2.jpg" alt="Dilemma 2"></div>
+              <div class="carousel-slide"><img src="img/Dilemma3.jpg" alt="Dilemma 3"></div>
+              <div class="carousel-slide"><img src="img/Dilemma4.jpg" alt="Dilemma 4"></div>
+              <div class="carousel-slide"><img src="img/Dilemma5.jpg" alt="Dilemma 5"></div>
+              <div class="carousel-slide"><img src="img/Dilemma6.jpg" alt="Dilemma 6"></div>
+              <div class="carousel-slide"><img src="img/Dilemma7.jpg" alt="Dilemma 7"></div>
+              <div class="carousel-slide"><img src="img/Dilemma8.jpg" alt="Dilemma 8"></div>
+              <div class="carousel-slide"><img src="img/Dilemma9.jpg" alt="Dilemma 9"></div>
+              <div class="carousel-slide"><img src="img/Dilemma10.jpg" alt="Dilemma 10"></div>
+            </div>
+            <button class="carousel-btn prev-btn" onclick="moveSlide(this, -1)">❮</button>
+            <button class="carousel-btn next-btn" onclick="moveSlide(this, 1)">❯</button>
+            <div class="carousel-dots">
+              <span class="dot active" onclick="goToSlide(this, 0)"></span>
+              <span class="dot" onclick="goToSlide(this, 1)"></span>
+              <span class="dot" onclick="goToSlide(this, 2)"></span>
+              <span class="dot" onclick="goToSlide(this, 3)"></span>
+              <span class="dot" onclick="goToSlide(this, 4)"></span>
+              <span class="dot" onclick="goToSlide(this, 5)"></span>
+              <span class="dot" onclick="goToSlide(this, 6)"></span>
+              <span class="dot" onclick="goToSlide(this, 7)"></span>
+              <span class="dot" onclick="goToSlide(this, 8)"></span>
+              <span class="dot" onclick="goToSlide(this, 9)"></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 项目 2: Spiritual Sustenance (6张照片) -->
+        <div class="project-card">
+          <span class="project-tag">Photography Series</span>
+          <h2>Spiritual Sustenance</h2>
+          <p style="font-size: 15px;">
+            [这里可以简单补充 Spiritual Sustenance 的作品描述]
+          </p>
+
+          <div class="carousel-container" data-current-index="0">
+            <div class="carousel-slides">
+              <div class="carousel-slide"><img src="img/Spiritual1.jpg" alt="Spiritual Sustenance 1"></div>
+              <div class="carousel-slide"><img src="img/Spiritual2.jpg" alt="Spiritual Sustenance 2"></div>
+              <div class="carousel-slide"><img src="img/Spiritual3.jpg" alt="Spiritual Sustenance 3"></div>
+              <div class="carousel-slide"><img src="img/Spiritual4.jpg" alt="Spiritual Sustenance 4"></div>
+              <div class="carousel-slide"><img src="img/Spiritual5.jpg" alt="Spiritual Sustenance 5"></div>
+              <div class="carousel-slide"><img src="img/Spiritual6.jpg" alt="Spiritual Sustenance 6"></div>
+            </div>
+            <button class="carousel-btn prev-btn" onclick="moveSlide(this, -1)">❮</button>
+            <button class="carousel-btn next-btn" onclick="moveSlide(this, 1)">❯</button>
+            <div class="carousel-dots">
+              <span class="dot active" onclick="goToSlide(this, 0)"></span>
+              <span class="dot" onclick="goToSlide(this, 1)"></span>
+              <span class="dot" onclick="goToSlide(this, 2)"></span>
+              <span class="dot" onclick="goToSlide(this, 3)"></span>
+              <span class="dot" onclick="goToSlide(this, 4)"></span>
+              <span class="dot" onclick="goToSlide(this, 5)"></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 项目 3: Missing Half (8张照片) -->
+        <div class="project-card">
+          <span class="project-tag">Photography Series</span>
+          <h2>Missing Half</h2>
+          <p style="font-size: 15px;">
+            [这里可以简单补充 Missing Half 的作品描述]
+          </p>
+
+          <div class="carousel-container" data-current-index="0">
+            <div class="carousel-slides">
+              <div class="carousel-slide"><img src="img/Missing1.jpg" alt="Missing Half 1"></div>
+              <div class="carousel-slide"><img src="img/Missing2.jpg" alt="Missing Half 2"></div>
+              <div class="carousel-slide"><img src="img/Missing3.jpg" alt="Missing Half 3"></div>
+              <div class="carousel-slide"><img src="img/Missing4.jpg" alt="Missing Half 4"></div>
+              <div class="carousel-slide"><img src="img/Missing5.jpg" alt="Missing Half 5"></div>
+              <div class="carousel-slide"><img src="img/Missing6.jpg" alt="Missing Half 6"></div>
+              <div class="carousel-slide"><img src="img/Missing7.jpg" alt="Missing Half 7"></div>
+              <div class="carousel-slide"><img src="img/Missing8.jpg" alt="Missing Half 8"></div>
+            </div>
+            <button class="carousel-btn prev-btn" onclick="moveSlide(this, -1)">❮</button>
+            <button class="carousel-btn next-btn" onclick="moveSlide(this, 1)">❯</button>
+            <div class="carousel-dots">
+              <span class="dot active" onclick="goToSlide(this, 0)"></span>
+              <span class="dot" onclick="goToSlide(this, 1)"></span>
+              <span class="dot" onclick="goToSlide(this, 2)"></span>
+              <span class="dot" onclick="goToSlide(this, 3)"></span>
+              <span class="dot" onclick="goToSlide(this, 4)"></span>
+              <span class="dot" onclick="goToSlide(this, 5)"></span>
+              <span class="dot" onclick="goToSlide(this, 6)"></span>
+              <span class="dot" onclick="goToSlide(this, 7)"></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 项目 4: Project 1 (摄影课 - 安装图+7张照片=8张) -->
+        <div class="project-card">
+          <span class="project-tag">College Photography Coursework</span>
+          <h2>Photography Project 1</h2>
+          <p style="font-size: 15px;">
+            [大学摄影课项目 1 简介]
+          </p>
+
+          <div class="carousel-container" data-current-index="0">
+            <div class="carousel-slides">
+              <div class="carousel-slide"><img src="img/P1installation.jpeg" alt="P1 Installation"></div>
+              <div class="carousel-slide"><img src="img/P101.jpeg" alt="P101"></div>
+              <div class="carousel-slide"><img src="img/P102.jpeg" alt="P102"></div>
+              <div class="carousel-slide"><img src="img/P103.jpeg" alt="P103"></div>
+              <div class="carousel-slide"><img src="img/P104.jpeg" alt="P104"></div>
+              <div class="carousel-slide"><img src="img/P105.jpeg" alt="P105"></div>
+              <div class="carousel-slide"><img src="img/P106.jpeg" alt="P106"></div>
+              <div class="carousel-slide"><img src="img/P107.jpeg" alt="P107"></div>
+            </div>
+            <button class="carousel-btn prev-btn" onclick="moveSlide(this, -1)">❮</button>
+            <button class="carousel-btn next-btn" onclick="moveSlide(this, 1)">❯</button>
+            <div class="carousel-dots">
+              <span class="dot active" onclick="goToSlide(this, 0)"></span>
+              <span class="dot" onclick="goToSlide(this, 1)"></span>
+              <span class="dot" onclick="goToSlide(this, 2)"></span>
+              <span class="dot" onclick="goToSlide(this, 3)"></span>
+              <span class="dot" onclick="goToSlide(this, 4)"></span>
+              <span class="dot" onclick="goToSlide(this, 5)"></span>
+              <span class="dot" onclick="goToSlide(this, 6)"></span>
+              <span class="dot" onclick="goToSlide(this, 7)"></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 项目 5: Project 2 (摄影课 - 安装图+6张照片=7张) -->
+        <div class="project-card">
+          <span class="project-tag">College Photography Coursework</span>
+          <h2>Photography Project 2</h2>
+          <p style="font-size: 15px;">
+            [大学摄影课项目 2 简介]
+          </p>
+
+          <div class="carousel-container" data-current-index="0">
+            <div class="carousel-slides">
+              <div class="carousel-slide"><img src="img/P2installation.jpeg" alt="P2 Installation"></div>
+              <div class="carousel-slide"><img src="img/P201.jpeg" alt="P201"></div>
+              <div class="carousel-slide"><img src="img/P202.jpeg" alt="P202"></div>
+              <div class="carousel-slide"><img src="img/P203.jpeg" alt="P203"></div>
+              <div class="carousel-slide"><img src="img/P204.jpeg" alt="P204"></div>
+              <div class="carousel-slide"><img src="img/P205.jpeg" alt="P205"></div>
+              <div class="carousel-slide"><img src="img/P206.jpeg" alt="P206"></div>
+            </div>
+            <button class="carousel-btn prev-btn" onclick="moveSlide(this, -1)">❮</button>
+            <button class="carousel-btn next-btn" onclick="moveSlide(this, 1)">❯</button>
+            <div class="carousel-dots">
+              <span class="dot active" onclick="goToSlide(this, 0)"></span>
+              <span class="dot" onclick="goToSlide(this, 1)"></span>
+              <span class="dot" onclick="goToSlide(this, 2)"></span>
+              <span class="dot" onclick="goToSlide(this, 3)"></span>
+              <span class="dot" onclick="goToSlide(this, 4)"></span>
+              <span class="dot" onclick="goToSlide(this, 5)"></span>
+              <span class="dot" onclick="goToSlide(this, 6)"></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 项目 6: Project 3 (摄影课 - 安装图+7张照片=8张) -->
+        <div class="project-card">
+          <span class="project-tag">College Photography Coursework</span>
+          <h2>Photography Project 3</h2>
+          <p style="font-size: 15px;">
+            [大学摄影课项目 3 简介]
+          </p>
+
+          <div class="carousel-container" data-current-index="0">
+            <div class="carousel-slides">
+              <div class="carousel-slide"><img src="img/P3installation.jpeg" alt="P3 Installation"></div>
+              <div class="carousel-slide"><img src="img/P301.jpeg" alt="P301"></div>
+              <div class="carousel-slide"><img src="img/P302.jpeg" alt="P302"></div>
+              <div class="carousel-slide"><img src="img/P303.jpeg" alt="P303"></div>
+              <div class="carousel-slide"><img src="img/P304.jpeg" alt="P304"></div>
+              <div class="carousel-slide"><img src="img/P305.jpeg" alt="P305"></div>
+              <div class="carousel-slide"><img src="img/P306.jpeg" alt="P306"></div>
+              <div class="carousel-slide"><img src="img/P307.jpeg" alt="P307"></div>
+            </div>
+            <button class="carousel-btn prev-btn" onclick="moveSlide(this, -1)">❮</button>
+            <button class="carousel-btn next-btn" onclick="moveSlide(this, 1)">❯</button>
+            <div class="carousel-dots">
+              <span class="dot active" onclick="goToSlide(this, 0)"></span>
+              <span class="dot" onclick="goToSlide(this, 1)"></span>
+              <span class="dot" onclick="goToSlide(this, 2)"></span>
+              <span class="dot" onclick="goToSlide(this, 3)"></span>
+              <span class="dot" onclick="goToSlide(this, 4)"></span>
+              <span class="dot" onclick="goToSlide(this, 5)"></span>
+              <span class="dot" onclick="goToSlide(this, 6)"></span>
+              <span class="dot" onclick="goToSlide(this, 7)"></span>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <div id="projects">
-        <h1>Projects</h1>
+      <!-- ==========================================
+           2. Installation & Spatial (装置与空间/跨媒介)
+           ========================================== -->
+      <div id="spatial">
+        <h1>Installation & Spatial</h1>
+        <p class="section-subtitle">Bridging 2D imagery with 3D physical spaces, materials, and mixed media.</p>
 
-        <!-- Project 1 -->
-        <h2>Project 1: Interactive Audio & Visual with p5.js</h2>
-        <div style="font-size: 13px;">
-    <p>I have always believed that sound,
-      or rather music, can preserve memories.
-      Whenever I revisit tunes I heard during a particular period,
-      they invariably evoke the sensations and emotions of that time.
-      That is why I created this project. It is a book, my personal diary,
-      chronicling the twelve months of 2025. 2025 holds
-      profound significance for me—it marked my most crucial
-      application season, my 18th birthday coming-of-age ceremony,
-      and my first solo journey abroad for studies.
-      Thus, I selected the most representative photographs
-      and a song capable of evoking memories for each month.
-      We can interactively explore each page. May the code
-      grant my happiness eternal preservation.</p>
-  </div>
-        <img src="img/project1.PNG" alt="My 2025 memoir 项目展示" class="project-image">
-        <a href="https://editor.p5js.org/Angelinaaa0311/sketches/Rn2HWifjM" target="_blank">My 2025 memoir</a>
+        <div class="project-card">
+          <span class="project-tag">Photo & Spatial Installation</span>
+          <h2>Photography & Installation Project</h2>
+          <p style="font-size: 15px;">
+            [这里填写“摄影+装置”作品的创作说明。]
+          </p>
+          <img src="img/project1.PNG" alt="Photo Installation" class="project-image">
+        </div>
 
-        <!-- Project 2 -->
-        <h2>Project 2: HyperNarrative</h2>
-        <div style="font-size: 13px;">
-    <p>This project is a small interactive website inspired by story-based games.
-      Players take on the role of the main character joining
-      a fictional dating show, and make different choices throughout several days
-      of the show.  Based on all the decisions they make,
-      the website will show their personality type in relationships,
-      who they are most compatible with, and what kind of person
-      they are in love.  I made this project because I want to create
-      something fun and relaxing, while also letting people learn
-      a little more about themselves through a lighthearted game.</p>
-  </div>
-        <img src="img/project2.PNG" alt="Crush Island 项目展示" class="project-image">
-        <a href="https://angelinaaa0311.github.io/iml300/IML300-project2-CrushIsland/" target="_blank">Crush Island</a>
+        <div class="project-card">
+          <span class="project-tag">Experimental Film & Installation</span>
+          <h2>Experimental Film & Spatial Photography</h2>
+          <p style="font-size: 15px;">
+            [这里填写“实验短片+装置摄影”作品的创作说明。]
+          </p>
+          <img src="img/project2.PNG" alt="Experimental Installation" class="project-image">
+        </div>
 
-        <!-- Project 3 -->
-        <h2>Project 3: Networked Care</h2>
-        <div style="font-size: 13px;">
-    <p>This is a warm interactive web platform
-      for young people in the Odyssey Years, a confusing
-      transitional life stage full of anxiety and loneliness.
-      With "life's rainy season" as its visual theme,
-      the homepage features a gentle rain animation and
-      five interactive umbrellas leading to five healing modules:
-      a white noise relax room, a growing tree companion,
-      a random gift box, a self-exploration quiz,
-      and a Firebase-powered message board.
-      It aims to accompany users through confused days
-      and build a warm networked care space.</p>
-  </div>
-        <img src="img/project3.PNG" alt="Odyssey Years 项目展示" class="project-image">
-        <a href="https://angelinaaa0311.github.io/iml300/IML300-project3-OdysseyYears/" target="_blank">Odyssey Years</a>
+        <div class="project-card">
+          <span class="project-tag">Studio Art & Mixed Media</span>
+          <h2>Art & Design Studio Project</h2>
+          <p style="font-size: 15px;">
+            [这里填写在 Art and Design Studio 课上完成的空间/立体/综合材料作品。]
+          </p>
+          <img src="img/project3.PNG" alt="Studio Art" class="project-image">
+        </div>
       </div>
 
-      <!-- ===== Exercises  ===== -->
-      <div id="exercises">
-        <h1>Exercises</h1>
+      <!-- ==========================================
+           3. Moving Image & Film (动态影像与影视)
+           ========================================== -->
+      <div id="film">
+        <h1>Moving Image & Film</h1>
+        <p class="section-subtitle">Cinematic storytelling, camera operation, and time-based media experiments.</p>
+
+        <div class="project-card">
+          <span class="project-tag">Short Film | Role: Camera Assistant</span>
+          <h2>Internship Short Film Project</h2>
+          <p style="font-size: 15px;">
+            Served as the Camera Assistant in this professional short film production. Responsible for camera setups, focus pulling assistance, and supporting the Director of Photography on set.
+          </p>
+          <img src="img/project2.PNG" alt="Short Film Project" class="project-image">
+        </div>
+      </div>
+
+      <!-- ==========================================
+           4. Interactive & Code (交互与计算编程)
+           ========================================== -->
+      <div id="interactive">
+        <h1>Interactive & Code</h1>
+        <p class="section-subtitle">Explorations in creative technology, p5.js interaction, and web experiments.</p>
+
+        <div class="project-card">
+          <span class="project-tag">p5.js Interactive Audio-Visual</span>
+          <h2>My 2025 Memoir</h2>
+          <p style="font-size: 15px;">
+            An interactive diary chronicling 12 months with music and visual memories.
+          </p>
+          <img src="img/project1.PNG" alt="My 2025 memoir" class="project-image">
+          <a href="https://editor.p5js.org/Angelinaaa0311/sketches/Rn2HWifjM" target="_blank">Launch Interactive Sketch →</a>
+        </div>
+
+        <div class="project-card">
+          <span class="project-tag">Web Game & Interactive Narrative</span>
+          <h2>Crush Island</h2>
+          <p style="font-size: 15px;">
+            A decision-making web narrative exploring relationship personalities through story choice.
+          </p>
+          <img src="img/project2.PNG" alt="Crush Island" class="project-image">
+          <a href="https://angelinaaa0311.github.io/iml300/IML300-project2-CrushIsland/" target="_blank">Play Interactive Game →</a>
+        </div>
+
+        <div class="project-card">
+          <span class="project-tag">Web Platform & Network Care</span>
+          <h2>Odyssey Years</h2>
+          <p style="font-size: 15px;">
+            A therapeutic web platform for young adults featuring rain animations, white noise, and message boards.
+          </p>
+          <img src="img/project3.PNG" alt="Odyssey Years" class="project-image">
+          <a href="https://angelinaaa0311.github.io/iml300/IML300-project3-OdysseyYears/" target="_blank">Visit Web Platform →</a>
+        </div>
+
+        <h2 style="margin-top: 50px;">p5.js Sketches & Experiments</h2>
         <div class="exercises-grid">
           <div class="exercise-item">
             <iframe src="https://editor.p5js.org/Angelinaaa0311/sketches/KBR7Jya1I"></iframe>
@@ -545,112 +710,35 @@
 
           <div class="exercise-item">
             <iframe src="https://editor.p5js.org/Angelinaaa0311/sketches/iZIgZK-3Z"></iframe>
-            <a href="https://editor.p5js.org/Angelinaaa0311/sketches/iZIgZK-3Z" target="_blank">Exercise3 | Iterative Pattern</a>
-          </div>
-
-          <div class="exercise-item">
-            <iframe src="https://editor.p5js.org/Angelinaaa0311/sketches/1-LkwU7zr"></iframe>
-            <a href="https://editor.p5js.org/Angelinaaa0311/sketches/1-LkwU7zr" target="_blank">Exercise3 | Iterative Pattern2</a>
-          </div>
-
-          <div class="exercise-item">
-            <iframe src="https://editor.p5js.org/Angelinaaa0311/sketches/jThE2VZCw"></iframe>
-            <a href="https://editor.p5js.org/Angelinaaa0311/sketches/jThE2VZCw" target="_blank">Exercise 4 | 30s Music Video</a>
-          </div>
-
-          <div class="exercise-item">
-            <iframe src="https://editor.p5js.org/Angelinaaa0311/sketches/TGI2O_3Ea"></iframe>
-            <a href="https://editor.p5js.org/Angelinaaa0311/sketches/TGI2O_3Ea" target="_blank">Exercise5 | Computational Poetry</a>
+            <a href="https://editor.p5js.org/Angelinaaa0311/sketches/iZIgZK-3Z" target="_blank">Exercise 3 | Pattern</a>
           </div>
         </div>
       </div>
 
-      <!-- ===== Vibe Coding  ===== -->
-      <div id="vibe-coding">
-        <h1>Vibe Coding Experiments</h1>
-
-        <div class="vibe-intro">
-          <p>This semester's Web Coding experience has helped me better express my inner thoughts and visualize ideas in a more precise way.</p>
-          <p>With consistent practice, I gradually learned to patiently adjust and refine the prompts I gave to AI, tweaking details step by step until the results perfectly matched my expectations.</p>
-          <p>It has been such an incredible journey that greatly improved my expressive skills and my ability to work with AI. This assignment is really meaningful and practical.</p>
-        </div>
-
-        <div class="vibe-item">
-          <div class="vibe-link">
-            <a href="https://claude.ai/public/artifacts/d578f305-6de1-4d0a-a788-9dd836784bcf" target="_blank">Vibe Coding Exercise #2</a>
-          </div>
-          <div class="vibe-description">
-            When I saw the author of the article mention the "filler" of the screen, the first thing that came to my mind was books. Recently, I have been studying Tarot cards. However, the heavy books make it very inconvenient for me to search for information. Combining the "skeuomorphic interface design" mentioned in the article, I represented each card face with different emojis and designed this website that enables me to quickly search for the meanings of the cards.
-          </div>
-        </div>
-
-        <div class="vibe-item">
-          <div class="vibe-link">
-            <a href="https://claude.ai/public/artifacts/7896f0fa-23d4-4aee-a852-d2750ab0d5d8" target="_blank">Vibe Coding Exercise #3</a>
-          </div>
-          <div class="vibe-description">
-            Reviewing today's materials has deepened my understanding of the internet. In my view, the internet connects people, illuminates lives, and provides a more orderly, manageable space along with a convenient language for communication. That's why I designed this webpage: no matter the sequence in which we click these dots, they will ultimately connect in an orderly fashion.
-          </div>
-        </div>
-
-        <div class="vibe-item">
-          <div class="vibe-link">
-            <a href="https://claude.ai/public/artifacts/651e79a8-d579-4780-b689-0d7a6c7945f8" target="_blank">Vibe Coding Exercise #4</a>
-          </div>
-          <div class="vibe-description">
-            After visiting Molly Soda's personal website, I fell in love with her style of works. Moreover, this website is like an archive and is in series, which became my source of inspiration. So I also made a folder to collect my life.
-          </div>
-        </div>
-
-        <div class="vibe-item">
-          <div class="vibe-link">
-            <a href="https://claude.ai/public/artifacts/7b73f830-607b-464f-aa33-11bbad2db1c9" target="_blank">Vibe Coding Exercise #5</a>
-          </div>
-          <div class="vibe-description">
-            In this speech, Adichie shared her personal experiences with us, encouraging us to reject single stories and embrace multiple facets. Whether it is individuals or groups, they are all complex and diverse. I fully agree with this view. I believe that due to different personal experiences, personalities, families and other factors, everyone has a different perspective on a certain matter. Therefore, we should maintain a multi-faceted view of a matter. At the same time, respect different things happening.
-          </div>
-        </div>
-
-        <div class="vibe-item">
-          <div class="vibe-link">
-            <a href="https://claude.ai/public/artifacts/7a4e6d4f-95fb-4d11-8696-16a535d9b256" target="_blank">Vibe Coding Exercise #6</a>
-          </div>
-          <div class="vibe-description">
-            After viewing Brandon's website, I realised that psychological disabilities deserve equal attention to physical disabilities. It was the first time I'd gained such a direct insight into how differently people with various mental health conditions perceive the world. That's why I created this webpage – to provide a quick overview of different mental health conditions and how we should interact with those affected.
-          </div>
-        </div>
-
-        <div class="vibe-item">
-          <div class="vibe-link">
-            <a href="https://claude.ai/public/artifacts/917cad83-1fd7-4c86-8a0e-a57ef47aa438" target="_blank">Vibe Coding Exercise #8</a>
-          </div>
-          <div class="vibe-description">
-            The works of Olivia Jack, especially her experiment of using drawing as a real-time coding interface, have inspired me. I think she has created a kind of dialogue between programming and hand-drawing. I think this is very special. From our hand-drawing to generating a program, I think this process is very wonderful. It feels like there is a sense of cooperation between humans and code. So I created this website. We can draw some lines on it, and then they will start to dance.
-          </div>
+      <!-- ==========================================
+           5. About & Statement (关于我与转专业声明)
+           ========================================== -->
+      <div id="about">
+        <h1>About Me & Artist Statement</h1>
+        <div style="max-width: 800px; margin: 0 auto; text-align: left; line-height: 1.8; font-size: 17px;">
+          <p>
+            Hi! I'm <strong>Angelina Sun</strong>, an interdisciplinary creator passionate about blending traditional visual arts with emerging digital technologies.
+          </p>
+          <p>
+            Starting from a foundation in lens-based photography, my practice evolved into spatial installation, video production, and active exploration in creative coding. I am continuously drawn to how media technologies can extend human emotions and construct therapeutic, narrative-driven interactive experiences.
+          </p>
+          <p>
+            Seeking to transfer into the <strong>Media Arts + Practice (MA+P)</strong> program, I aim to deepen my technical expertise, engage with immersive environments, and expand my artistic boundary in human-computer interaction.
+          </p>
         </div>
       </div>
 
-      <!-- ===== Thoughts  ===== -->
-      <div id="thoughts">
-        <h1>Thoughts</h1>
-        <div class="thoughts-text">
-          <p>Overall, this semester felt like opening the door to a brand-new world. Through constant practice and learning new knowledge here, I gradually grew from a shy, inexperienced beginner into someone more mature and confident.</p>
-
-          <p>I still remember my first class. I had zero background in coding and never took any computer or programming courses in high school. I was totally confused and extremely nervous at the very beginning, and I even wanted to drop this course.</p>
-
-          <p>Later, I went to office hours to ask questions and communicate with professors and TAs, which helped me ease my fears and dare to have a try. At first, I felt really anxious and stressed to present my projects in front of the whole class. Yet by listening to feedback and suggestions from teachers and classmates, I gained diverse perspectives and valuable advice. Regular in-class presentations also greatly polished my expressive and communication skills.</p>
-
-          <p>I can clearly feel that with more practice and every finished project, my works have become more professional, and I have grown fonder of what I create. Gradually, I even fell in love with coding. I am willing to spend hours working on it, and I no longer feel timid or hesitant to try new things.</p>
-
-          <p>I truly love this course. I hope all the knowledge and experience I have gained here can accompany me in my future study and life.</p>
-        </div>
-      </div>
-
-      <footer>Spring, 2026.</footer>
+      <footer>Designed & Created by Angelina Sun © 2026</footer>
     </div>
 
-
+    <!-- ===== JS 脚本（星空、平滑滚动与轮播图） ===== -->
     <script>
+      /* ===== 1. 星空生成动画 ===== */
       (function() {
         const container = document.getElementById('stars-container');
         const numberOfStars = 19;
@@ -676,63 +764,41 @@
 
           const img = document.createElement('img');
           img.src = imagePath;
-          img.alt = '星星';
-          img.onerror = function() {
-            star.style.display = 'none';
-          };
+          img.alt = 'Star';
+          img.onerror = function() { star.style.display = 'none'; };
           star.appendChild(img);
 
           container.appendChild(star);
 
-          setTimeout(() => {
-            if (star.parentNode) {
-              star.remove();
-            }
-          }, 5000);
+          setTimeout(() => { if (star.parentNode) star.remove(); }, 5000);
         }
 
         function createStarBatch() {
           const batchSize = Math.floor(Math.random() * 4) + 4;
           for (let i = 0; i < batchSize; i++) {
-            setTimeout(() => {
-              createStar();
-            }, i * 150);
+            setTimeout(() => { createStar(); }, i * 150);
           }
         }
 
         function startStarCycle() {
           createStarBatch();
-
           function scheduleNext() {
-            const delay = Math.random() * 1500 + 2000;
             setTimeout(() => {
               createStarBatch();
               scheduleNext();
-            }, delay);
+            }, Math.random() * 1500 + 2000);
           }
-
           scheduleNext();
         }
 
-        function occasionalSoloStar() {
-          setInterval(() => {
-            if (Math.random() > 0.6) {
-              createStar();
-            }
-          }, 1500);
-        }
-
         if (document.readyState === 'loading') {
-          document.addEventListener('DOMContentLoaded', () => {
-            startStarCycle();
-            occasionalSoloStar();
-          });
+          document.addEventListener('DOMContentLoaded', startStarCycle);
         } else {
           startStarCycle();
-          occasionalSoloStar();
         }
       })();
 
+      /* ===== 2. 锚点平滑滚动 ===== */
       function scrollToSection(sectionId) {
         const element = document.getElementById(sectionId);
         if (element) {
@@ -745,6 +811,40 @@
             behavior: 'smooth'
           });
         }
+      }
+
+      /* ===== 3. 原生轮播图控制逻辑 ===== */
+      function moveSlide(btn, direction) {
+        const container = btn.closest('.carousel-container');
+        const slides = container.querySelector('.carousel-slides');
+        const totalSlides = container.querySelectorAll('.carousel-slide').length;
+        const dots = container.querySelectorAll('.dot');
+
+        let currentIndex = parseInt(container.dataset.currentIndex || 0);
+        currentIndex += direction;
+
+        if (currentIndex >= totalSlides) currentIndex = 0;
+        if (currentIndex < 0) currentIndex = totalSlides - 1;
+
+        container.dataset.currentIndex = currentIndex;
+        slides.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+        dots.forEach((dot, idx) => {
+          dot.classList.toggle('active', idx === currentIndex);
+        });
+      }
+
+      function goToSlide(dot, index) {
+        const container = dot.closest('.carousel-container');
+        const slides = container.querySelector('.carousel-slides');
+        const dots = container.querySelectorAll('.dot');
+
+        container.dataset.currentIndex = index;
+        slides.style.transform = `translateX(-${index * 100}%)`;
+
+        dots.forEach((d, idx) => {
+          d.classList.toggle('active', idx === index);
+        });
       }
     </script>
   </body>
